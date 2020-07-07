@@ -3,4 +3,4 @@ cat package.json \
   | head -1 \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g' \
-  | tr -d '[[:space:]]'
+  | tr -d '[[:space:]]' > build_version/package_version
