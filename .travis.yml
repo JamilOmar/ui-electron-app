@@ -62,7 +62,7 @@ jobs:
       workspaces:
         use: build_version 
       script:
-        - cat build_version.txt || true
+        - ls && cat build_version.txt || true
     - stage: electron deployment
       if: branch = master
       os: win
