@@ -51,23 +51,19 @@ jobs:
       language: node_js
       node_js: lts/*
       script: skip
-      before_deploy:
-        - aws s3 cp s3://ui-electron-app/package_version package_version
       deploy:
         provider: script
         skip_cleanup: true
         script:
-          - lsc build electron --platform=mac --buildVersion="$(cat package_version)"
+          - lsc build electron --platform=mac --buildVersion="$(curl -L https://ui-electron-app.s3.amazonaws.com/package_version)"
     - stage: electron deployment
       if: branch = master
       os: win
       language: node_js
       node_js: lts/*
       script: skip
-      before_deploy:
-        - aws s3 cp s3://ui-electron-app/package_version package_version
       deploy:
         provider: script
         skip_cleanup: true
         script:
-          - lsc build electron --platform=mac --buildVersion="$(cat package_version)"
+          - lsc build electron --platform=mac --buildVersion="$(curl -L https://ui-electron-app.s3.amazonaws.com/package_version)"
