@@ -16,6 +16,9 @@ before_install:
         echo "//registry.npmjs.org/:_authToken=\${NPM_INSTALL_TOKEN}" > ~/.npmrc;
     fi
   - 'git config --global url."git@github.com:".insteadOf "https://github.com/"'
+  - pip install --user awscli
+  - aws configure set aws_access_key_id $AWS_ACCESS_TOKEN
+  - aws configure set aws_secret_access_key $AWS_SECRET_TOKEN
 install:
   - npm i -g @labshare/lsc codecov
   - npm install
@@ -33,10 +36,6 @@ jobs:
     - stage: release
       if: branch = master
       node_js: lts/*
-      before_deploy:
-        - pip install --user awscli
-        - aws configure set aws_access_key_id $AWS_ACCESS_TOKEN
-        - aws configure set aws_secret_access_key $AWS_SECRET_TOKEN
       deploy:
         provider: script
         skip_cleanup: true
