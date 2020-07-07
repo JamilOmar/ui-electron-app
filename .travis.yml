@@ -39,11 +39,10 @@ jobs:
         script:
           - npm run semantic-release
           - ./extract_version.sh
-        provider: s3
-        access_key_id: ${AWS_ACCESS_TOKEN}
-        secret_access_key: ${AWS_SECRET_TOKEN}
-        bucket: "ui-electron-app"
-        local_dir: build_version
+          - pip install --user awscli
+          - aws configure set aws_access_key_id $AWS_ACCESS_TOKEN
+          - aws configure set aws_secret_access_key $AWS_SECRET_TOKEN
+          - aws s3 cp build_version/package_version s3://ui-electron-app/
     - stage: electron deployment
       if: branch = master
       os: osx
