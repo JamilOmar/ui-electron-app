@@ -45,6 +45,7 @@ jobs:
       after_deploy:
         - ./extract_version.sh
         - aws s3 cp package_version s3://ui-electron-app/
+        - sleep 10
     - stage: electron deployment
       if: branch = master
       os: osx
