@@ -7,3 +7,4 @@ ARG SOURCE_FOLDER="./dist/ui-app-04"
 COPY ${SOURCE_FOLDER} .
 
 EXPOSE 8000
+
