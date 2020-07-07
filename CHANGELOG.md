@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/jamilomar/ui-electron-app/compare/v1.2.4...v1.3.0) (2020-07-07)
+
+
+### Features
+
+* travis test ([bd94eed](https://github.com/jamilomar/ui-electron-app/commit/bd94eed11823e461c80d4ff8f9ed1394ba316bc0))
+
 ## [1.2.4](https://github.com/jamilomar/ui-electron-app/compare/v1.2.3...v1.2.4) (2020-06-25)
 
 
