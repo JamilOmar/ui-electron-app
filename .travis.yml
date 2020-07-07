@@ -42,9 +42,9 @@ jobs:
         script:
           - npm run semantic-release
       after_deploy:
-        - ls
         - ./extract_version.sh
-        - aws s3 cp build_version/package_version s3://ui-electron-app/
+        - ls
+        - aws s3 cp package_version s3://ui-electron-app/
     - stage: electron deployment
       if: branch = master
       os: osx
