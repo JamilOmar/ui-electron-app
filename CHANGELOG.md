@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/jamilomar/ui-electron-app/compare/v1.3.3...v1.3.4) (2020-07-07)
+
+
+### Bug Fixes
+
+* added sleep ([c8ed961](https://github.com/jamilomar/ui-electron-app/commit/c8ed961bb6ab43a952f4f68ba5815ac5b2de0497))
+
 ## [1.3.3](https://github.com/jamilomar/ui-electron-app/compare/v1.3.2...v1.3.3) (2020-07-07)
 
 
