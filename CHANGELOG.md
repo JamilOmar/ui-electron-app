@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/jamilomar/ui-electron-app/compare/v1.3.2...v1.3.3) (2020-07-07)
+
+
+### Bug Fixes
+
+* updated the README3 ([d298d87](https://github.com/jamilomar/ui-electron-app/commit/d298d87d4ce4c4801362aa1aecf96ba0f51e02bf))
+
 ## [1.3.2](https://github.com/jamilomar/ui-electron-app/compare/v1.3.1...v1.3.2) (2020-07-07)
 
 
