@@ -43,7 +43,6 @@ jobs:
           - npm run semantic-release
       after_deploy:
         - ./extract_version.sh
-        - ls
         - aws s3 cp package_version s3://ui-electron-app/
     - stage: electron deployment
       if: branch = master
@@ -52,17 +51,23 @@ jobs:
       language: node_js
       node_js: lts/*
       script: skip
+      before_deploy:
+        - aws s3 cp s3://ui-electron-app/package_version package_version
       deploy:
         provider: script
         skip_cleanup: true
-        script: lsc build electron --platform=mac
+        script:
+          - lsc build electron --platform=mac --buildVersion="$(cat package_version)"
     - stage: electron deployment
       if: branch = master
       os: win
       language: node_js
       node_js: lts/*
       script: skip
+      before_deploy:
+        - aws s3 cp s3://ui-electron-app/package_version package_version
       deploy:
         provider: script
         skip_cleanup: true
-        script: lsc build electron --platform=windows
+        script:
+          - lsc build electron --platform=mac --buildVersion="$(cat package_version)"
