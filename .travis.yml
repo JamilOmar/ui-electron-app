@@ -38,6 +38,7 @@ jobs:
         skip_cleanup: true
         script:
           - npm run semantic-release
+          - ./extract_version.sh
         provider: s3
         access_key_id: ${AWS_ACCESS_TOKEN}
         secret_access_key: ${AWS_SECRET_TOKEN}
