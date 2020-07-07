@@ -42,7 +42,7 @@ jobs:
         access_key_id: ${AWS_ACCESS_TOKEN}
         secret_access_key: ${AWS_SECRET_TOKEN}
         bucket: "ui-electron-app"
-        glob: "package.json"
+        local_dir: build_version
     - stage: electron deployment
       if: branch = master
       os: osx
