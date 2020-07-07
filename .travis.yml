@@ -33,17 +33,16 @@ jobs:
     - stage: release
       if: branch = master
       node_js: lts/*
-      script: echo "1.1" > build_version.txt 
       deploy:
         provider: script
         skip_cleanup: true
         script:
           - npm run semantic-release
-      workspaces:
-        create:
-          name: build_version
-          paths:
-            - build_version.txt
+        provider: s3
+        access_key_id: ${AWS_ACCESS_TOKEN}
+        secret_access_key: ${AWS_SECRET_TOKEN}
+        bucket: "ui-electron-app"
+        glob: "package.json"
     - stage: electron deployment
       if: branch = master
       os: osx
@@ -51,33 +50,17 @@ jobs:
       language: node_js
       node_js: lts/*
       script: skip
-      before_deploy:
-        # retrieving latest package json from master for version number
-        # - git pull origin master 
-        # - git merge origin/master
       deploy:
         provider: script
         skip_cleanup: true
         script: lsc build electron --platform=mac
-      workspaces:
-        use: build_version 
-      script:
-        - ls && cat build_version.txt || true
     - stage: electron deployment
       if: branch = master
       os: win
       language: node_js
       node_js: lts/*
       script: skip
-      before_deploy:
-        # retrieving latest package json from master for version number
-        # - git pull origin master 
-        # - git merge origin/master
       deploy:
         provider: script
         skip_cleanup: true
         script: lsc build electron --platform=windows
-      workspaces:
-        use: build_version 
-      script:
-        - cat build_version.txt || true
