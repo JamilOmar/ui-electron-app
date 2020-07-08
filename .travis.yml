@@ -42,8 +42,9 @@ jobs:
         skip_cleanup: true
         script:
           - npm run semantic-release
-          - ./extract_version.sh
-          - aws s3 cp package_version s3://ui-electron-app/
+      after_deploy:
+        - ./extract_version.sh
+        - aws s3 cp package_version s3://ui-electron-app/
     - stage: electron deployment
       if: branch = master
       os: osx
@@ -53,7 +54,7 @@ jobs:
       script: skip
       deploy:
         provider: script
-        skip_cleanup: true
+        skip_cleanup: false
         script:
           - lsc build electron --platform=mac --buildVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
     - stage: electron deployment
@@ -64,6 +65,6 @@ jobs:
       script: skip
       deploy:
         provider: script
-        skip_cleanup: true
+        skip_cleanup: false
         script:
           - lsc build electron --platform=win --buildVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
