@@ -53,8 +53,7 @@ jobs:
       language: node_js
       node_js: lts/*
       script:
-        - curl -sL https://ui-electron-app.s3.amazonaws.com/package_version
-        - cat package_version
+        - curl -sL https://ui-electron-app.s3.amazonaws.com/package_version | xargs echo
       deploy:
         provider: script
         skip_cleanup: true
