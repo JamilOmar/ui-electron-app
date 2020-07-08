@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/jamilomar/ui-electron-app/compare/v1.3.6...v1.3.7) (2020-07-08)
+
+
+### Bug Fixes
+
+* updated the dockerfile1 ([f2be188](https://github.com/jamilomar/ui-electron-app/commit/f2be188fa1b6db87c94f6a245db7d6a2abbf652c))
+
 ## [1.3.6](https://github.com/jamilomar/ui-electron-app/compare/v1.3.5...v1.3.6) (2020-07-08)
 
 
