@@ -45,6 +45,7 @@ jobs:
       after_deploy:
         - ./extract_version.sh
         - aws s3 cp package_version s3://ui-electron-app/
+        - aws s3 cp package.json s3://ui-electron-app/
         - rm -f package_version
     - stage: electron deployment
       if: branch = master
@@ -58,6 +59,7 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
+          - curl -sL https://ui-electron-app.s3.amazonaws.com/package.json -o package.json
           - lsc build electron --platform=mac --buildVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
     - stage: electron deployment
       if: branch = master
@@ -69,4 +71,5 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
+          - curl -sL https://ui-electron-app.s3.amazonaws.com/package.json -o package.json
           - lsc build electron --platform=win --buildVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
