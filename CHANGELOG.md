@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/jamilomar/ui-electron-app/compare/v1.3.13...v1.3.14) (2020-07-14)
+
+
+### Bug Fixes
+
+* test windows build in mac ([9b44a49](https://github.com/jamilomar/ui-electron-app/commit/9b44a49cfb52ca9b72e7a7ccc15e2affcf5ca172))
+
 ## [1.3.13](https://github.com/jamilomar/ui-electron-app/compare/v1.3.12...v1.3.13) (2020-07-14)
 
 
