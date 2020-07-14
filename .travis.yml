@@ -57,15 +57,4 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
-          - pwd && ls && mv config/app-qa.conf app.conf && lsc build electron --platform=mac --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
-    - stage: electron deployment
-      if: branch = master
-      os: win
-      language: node_js
-      node_js: lts/*
-      script: skip 
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - pwd && ls && mv config/app-qa.conf app.conf && lsc build electron --platform=win --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
+          - mv config/app-qa.conf app.conf && lsc build electron --platform=mac --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)" && lsc build electron --platform=win --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
