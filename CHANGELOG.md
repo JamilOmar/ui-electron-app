@@ -1,3 +1,11 @@
+## [1.3.13](https://github.com/jamilomar/ui-electron-app/compare/v1.3.12...v1.3.13) (2020-07-14)
+
+
+### Bug Fixes
+
+* added app-qa.conf ([357d80f](https://github.com/jamilomar/ui-electron-app/commit/357d80f41c85a973c5ffdde4b82955d77d0b2365))
+* fix the travis file ([a94eae4](https://github.com/jamilomar/ui-electron-app/commit/a94eae41d9d0702a34697e1e19226dc815b15502))
+
 ## [1.3.12](https://github.com/jamilomar/ui-electron-app/compare/v1.3.11...v1.3.12) (2020-07-08)
 
 
