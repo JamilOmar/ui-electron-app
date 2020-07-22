@@ -52,6 +52,9 @@ jobs:
         - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
       deploy:
         provider: releases
+        tag_name: $TRAVIS_TAG
         api_key: $GH_TOKEN 
         file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
+        on:
+          tags: true
