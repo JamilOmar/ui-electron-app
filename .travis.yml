@@ -46,7 +46,7 @@ jobs:
         - ./extract_version.sh
         - aws s3 cp package_version s3://ui-electron-app/
         - rm -f package_version
-    - stage: release
+    - stage: upload rpm to release 
       if: branch = master
       before_deploy:
         - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
