@@ -46,15 +46,12 @@ jobs:
         - ./extract_version.sh
         - aws s3 cp package_version s3://ui-electron-app/
         - rm -f package_version
-    - stage: electron deployment
+    - stage: release
       if: branch = master
-      os: osx
-      osx_image: xcode7.2
-      language: node_js
-      node_js: lts/*
-      script: skip
+      before_deploy:
+        - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
       deploy:
-        provider: script
+        provider: releases
+        api_key: $GH_TOKEN 
+        file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
-        script:
-          - mv config/app-qa.conf app.conf && lsc build electron --platform=mac --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)" && lsc build electron --platform=win --releaseVersion="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
