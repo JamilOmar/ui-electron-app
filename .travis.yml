@@ -50,12 +50,11 @@ jobs:
       if: branch = master
       before_deploy:
         - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
-        - export TRAVIS_TAG=v$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version) 
-        - git tag $TRAVIS_TAG
       deploy:
         provider: releases
         api_key: $GH_TOKEN 
         file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
         on:
+          repo: JamilOmar/ui-electron-app
           tags: true
