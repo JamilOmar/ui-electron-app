@@ -50,6 +50,7 @@ jobs:
       if: branch = master
       before_deploy:
         - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
+        - export TRAVIS_TAG=v1.3.26
       deploy:
         provider: releases
         api_key: $GH_TOKEN 
