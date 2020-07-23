@@ -57,5 +57,3 @@ jobs:
         api_key: $GH_TOKEN 
         file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
-        on:
-          tags: true
