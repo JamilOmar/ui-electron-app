@@ -18,7 +18,10 @@ before_install:
   - 'git config --global url."git@github.com:".insteadOf "https://github.com/"'
 install:
   - npm i -g @labshare/lsc codecov
+  - npm install
+  - npm rebuild
 script:
+  - npm run build
   - npm run lint
 notifications:
   email: false
@@ -50,7 +53,9 @@ jobs:
         - export TRAVIS_TAG=v$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version) 
       deploy:
         provider: releases
-        name: ${TRAVIS_TAG} 
+        name: v1.3.19 
         api_key: $GH_TOKEN 
         file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
+        on:
+          tags: true
