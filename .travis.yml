@@ -53,7 +53,7 @@ jobs:
         - export TRAVIS_TAG=v$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version) 
       deploy:
         provider: releases
-        name: v1.3.19 
+        name: $TRAVIS_TAG 
         api_key: $GH_TOKEN 
         file: hedwig-api-1.8.0.rpm 
         skip_cleanup: true
