@@ -1,3 +1,10 @@
+## [1.3.30](https://github.com/jamilomar/ui-electron-app/compare/v1.3.29...v1.3.30) (2020-07-24)
+
+
+### Bug Fixes
+
+* travis test3 ([b5ce822](https://github.com/jamilomar/ui-electron-app/commit/b5ce8226c9bd3b546befecd05a1412ce53bd9f63))
+
 ## [1.3.29](https://github.com/jamilomar/ui-electron-app/compare/v1.3.28...v1.3.29) (2020-07-24)
 
 
