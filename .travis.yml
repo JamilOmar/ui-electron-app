@@ -37,6 +37,8 @@ jobs:
         - pip install --user awscli
         - aws configure set aws_access_key_id $AWS_ACCESS_TOKEN
         - aws configure set aws_secret_access_key $AWS_SECRET_TOKEN
+        - mkdir rpm
+        - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm -O rpm/hedwig.rpm 
       deploy:
         provider: script
         skip_cleanup: true
@@ -46,16 +48,3 @@ jobs:
         - ./extract_version.sh
         - aws s3 cp package_version s3://ui-electron-app/
         - rm -f package_version
-    - stage: upload rpm to release 
-      if: branch = master
-      before_deploy:
-        - wget https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.0.rpm 
-        - export TRAVIS_TAG=v1.3.26
-      deploy:
-        provider: releases
-        api_key: $GH_TOKEN 
-        file: hedwig-api-1.8.0.rpm 
-        skip_cleanup: true
-        on:
-          repo: JamilOmar/ui-electron-app
-          tags: true

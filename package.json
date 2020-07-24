@@ -119,7 +119,11 @@
           "npmPublish": false
         }
       ],
-      "@semantic-release/github",
+      ["@semantic-release/github", {
+      "assets": [
+        {"path": "rpm/*", "label": "hedwig.rpm"}
+      ]
+    }],
       "@semantic-release/git"
     ]
   }
