@@ -54,5 +54,5 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        file: rpm/* 
+        file: rpm/hedwig.rpm
         api_key: $GH_TOKEN
