@@ -49,10 +49,9 @@ jobs:
     - stage: upload rpm 
       if: branch = master
       before_deploy:
-        - mkdir rpm
-        - curl -sL https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.1.rpm -o rpm/hedwig.rpm 
+        - curl -sL https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.1.rpm -o hedwig.rpm 
       deploy:
         provider: script
         skip_cleanup: true
-        file: rpm/hedwig.rpm
+        file: hedwig.rpm
         api_key: $GH_TOKEN
