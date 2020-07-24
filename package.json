@@ -1,6 +1,6 @@
 {
   "name": "ui-app-04",
-  "version": "1.3.26",
+  "version": "1.3.27",
   "description": "This is a test application",
   "scripts": {
     "ng": "ng",
@@ -119,11 +119,17 @@
           "npmPublish": false
         }
       ],
-      ["@semantic-release/github", {
-      "assets": [
-        {"path": "rpm/*", "label": "hedwig.rpm"}
-      ]
-    }],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "rpm/*",
+              "label": "hedwig.rpm"
+            }
+          ]
+        }
+      ],
       "@semantic-release/git"
     ]
   }
