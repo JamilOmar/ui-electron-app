@@ -50,9 +50,7 @@ jobs:
       if: branch = master
       before_deploy:
         - mkdir rpm
-        - export package_version="$(curl -sL https://ui-electron-app.s3.amazonaws.com/package_version)"
-        - export url=https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-"$package_version".rpm 
-        - curl -sL $url -o rpm/hedwig.rpm 
+        - curl -sL https://builds.aws.labshare.org/artifactory/labshare/hedwig-api/hedwig-api-1.8.1.rpm -o rpm/hedwig.rpm 
       deploy:
         provider: script
         skip_cleanup: true
