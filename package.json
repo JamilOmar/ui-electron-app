@@ -94,7 +94,7 @@
     "powershell": "^2.3.1",
     "prettier": "1.19.1",
     "protractor": "~5.4.3",
-    "semantic-release": "^17.1.0",
+    "semantic-release": "^19.0.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
